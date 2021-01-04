@@ -28,11 +28,14 @@ public class MainActivity extends AppCompatActivity {
     List<ExpenseTracker> expenseTrackerList=new ArrayList<>();
     Button button;
     ListView listView;
+    MyDbHandler db=new MyDbHandler(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MyDbHandler db=new MyDbHandler(this);
+        setThings();
+    }
+    public void setThings(){
         SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date date=new Date();
         String dateString=formatter.format(date);
@@ -45,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         }
         populate();
     }
-
     public void checkToday(String d){
         for (ExpenseTracker expenseTracker:expenseTrackerList){
             if(d.equals(expenseTracker.getDate())){
@@ -82,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
             super.onActivityResult(requestCode, resultCode, data);
             if(requestCode==333){
-                populate();
+                setThings();
             }
     }
 }

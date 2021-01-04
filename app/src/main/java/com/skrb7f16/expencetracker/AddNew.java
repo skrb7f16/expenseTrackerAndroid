@@ -41,6 +41,6 @@ public class AddNew extends AppCompatActivity {
         expenseTracker.setReason(tempReason);
         MyDbHandler db=new MyDbHandler(this);
         db.addExpence(expenseTracker);
-        finishActivity(333);
+        finish();
     }
 }

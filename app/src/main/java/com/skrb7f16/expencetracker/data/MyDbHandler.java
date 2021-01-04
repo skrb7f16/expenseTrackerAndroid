@@ -43,7 +43,7 @@ public class MyDbHandler extends SQLiteOpenHelper {
         contentValues.put(Params.KEY_DATE,expenseTracker.getDate());
         db.insert(Params.TABLE_NAME,null,contentValues);
         db.close();
-        Log.d("meow","added successfully");
+
     }
 
     public List<ExpenseTracker> allExpence(){
